@@ -32,6 +32,7 @@ const servicesData = [
     }
 ];
 
+<!-- Di dalam script.js, update portfolioData: -->
 const portfolioData = [
     {
         title: "E-Commerce Website",
@@ -39,7 +40,7 @@ const portfolioData = [
         image: "assets/images/project1.jpg",
         technologies: ["React", "Node.js", "MongoDB", "Stripe"],
         category: "react",
-        link: "#",
+        link: "projects/ecommerce-website.html",  // Ganti dengan ini
         github: "#"
     },
     {
@@ -48,7 +49,7 @@ const portfolioData = [
         image: "assets/images/project2.jpg",
         technologies: ["Vue.js", "Firebase", "TailwindCSS"],
         category: "vue",
-        link: "#",
+        link: "projects/task-management-app.html",  // Ganti dengan ini
         github: "#"
     },
     {
@@ -57,7 +58,7 @@ const portfolioData = [
         image: "assets/images/project3.jpg",
         technologies: ["React", "API", "Chart.js", "CSS3"],
         category: "react",
-        link: "#",
+        link: "projects/weather-dashboard.html",  // Ganti dengan ini
         github: "#"
     },
     {
@@ -66,7 +67,7 @@ const portfolioData = [
         image: "assets/images/project4.jpg",
         technologies: ["Node.js", "Express", "MongoDB", "JWT"],
         category: "node",
-        link: "#",
+        link: "projects/rest-api-service.html",  // Ganti dengan ini
         github: "#"
     },
     {
@@ -75,7 +76,7 @@ const portfolioData = [
         image: "assets/images/project5.jpg",
         technologies: ["Node.js", "WhatsApp API", "MongoDB", "Express"],
         category: "api",
-        link: "#",
+        link: "https://wa.me/6289519141241",  // Ganti dengan ini
         github: "#"
     }
 ];
