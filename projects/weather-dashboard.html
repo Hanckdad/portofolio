@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherSphere Pro | Asep Gu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/projects.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .weather-animation {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+        }
+        
+        .sun {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ffbd2e, #ff9500);
+            border-radius: 50%;
+            top: 20px;
+            left: 20px;
+            box-shadow: 0 0 30px rgba(255, 189, 46, 0.5);
+            animation: rotateSun 20s linear infinite;
+        }
+        
+        .cloud {
+            position: absolute;
+            width: 80px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50px;
+            top: 30px;
+            left: 10px;
+            box-shadow: 
+                20px -15px 0 -10px rgba(255, 255, 255, 0.9),
+                -20px -15px 0 -10px rgba(255, 255, 255, 0.9);
+            animation: floatCloud 10s ease-in-out infinite;
+        }
+        
+        .rain-drop {
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            background: #00b4ff;
+            border-radius: 1px;
+            animation: rainFall 1.5s linear infinite;
+        }
+        
+        .rain-drop:nth-child(1) { left: 20px; animation-delay: 0s; }
+        .rain-drop:nth-child(2) { left: 40px; animation-delay: 0.2s; }
+        .rain-drop:nth-child(3) { left: 60px; animation-delay: 0.4s; }
+        .rain-drop:nth-child(4) { left: 80px; animation-delay: 0.6s; }
+        
+        @keyframes rotateSun {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes floatCloud {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes rainFall {
+            0% { transform: translateY(-20px); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(40px); opacity: 0; }
+        }
+        
+        .weather-card {
+            background: linear-gradient(135deg, rgba(0, 148, 255, 0.1), rgba(255, 0, 60, 0.1));
+            border: 1px solid rgba(0, 148, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .weather-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 148, 255, 0.2);
+        }
+        
+        .forecast-day {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .aqi-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 255, 0, 0.1);
+            border-radius: 2rem;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+        }
+        
+        .aqi-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #00ff00;
+            animation: pulseAqi 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulseAqi {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effect -->
+    <div class="background-overlay"></div>
+    
+    <!-- Navigation -->
+    <nav class="project-nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">Asep Gu</a>
+            
+            <div class="nav-links">
+                <a href="../index.html#home" class="nav-link">Home</a>
+                <a href="../index.html#portfolio" class="nav-link">Portfolio</a>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
+            </div>
+            
+            <a href="../index.html#portfolio" class="back-btn">
+                <i class="fas fa-arrow-left"></i>
+                Back to Portfolio
+            </a>
+        </div>
+    </nav>
+    
+    <!-- Project Container -->
+    <main class="project-container">
+        <!-- Project Header -->
+        <header class="project-header">
+            <h1 class="project-title">WeatherSphere Pro</h1>
+            <p class="project-subtitle">Real-time weather dashboard with beautiful visualizations and hyper-accurate forecasts</p>
+        </header>
+        
+        <!-- Project Hero -->
+        <section class="project-hero">
+            <div class="project-image">
+                <img src="../assets/images/project3.jpg" alt="Weather Dashboard Interface">
+                <div class="weather-animation" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                    <div class="sun"></div>
+                    <div class="cloud"></div>
+                    <div class="rain-drop"></div>
+                    <div class="rain-drop"></div>
+                    <div class="rain-drop"></div>
+                    <div class="rain-drop"></div>
+                </div>
+            </div>
+            
+            <div class="project-overview">
+                <h2 class="overview-title">Weather Intelligence Platform</h2>
+                <p class="overview-text">
+                    Built a sophisticated weather monitoring system that aggregates data from multiple sources, 
+                    processes it with machine learning algorithms, and presents it through an intuitive, 
+                    visually stunning interface. Features real-time updates, historical data analysis, 
+                    and predictive forecasting.
+                </p>
+                
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Data Sources</span>
+                        <span class="meta-value">5+ APIs</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Coverage</span>
+                        <span class="meta-value">Global</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Accuracy</span>
+                        <span class="meta-value">98.5%</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Updates</span>
+                        <span class="meta-value">Real-time</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Project Details -->
+        <section class="project-details">
+            <div class="project-content">
+                <!-- Features -->
+                <div class="detail-card">
+                    <h3 class="detail-title">
+                        <i class="fas fa-cloud-sun-rain"></i>
+                        Advanced Features
+                    </h3>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-bolt"></i>
+                            <div>
+                                <strong>Real-time Updates</strong>
+                                <p>Live data refresh every 5 minutes</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <strong>Predictive Analytics</strong>
+                                <p>AI-powered 10-day forecasts</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <div>
+                                <strong>Interactive Maps</strong>
+                                <p>Weather layers & heatmaps</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-wind"></i>
+                            <div>
+                                <strong>Air Quality Index</strong>
+                                <p>Real-time pollution monitoring</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-bell"></i>
+                            <div>
+                                <strong>Severe Alerts</strong>
+                                <p>Storm & disaster warnings</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div>
+                                <strong>PWA Support</strong>
+                                <p>Install as native mobile app</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-history"></i>
+                            <div>
+                                <strong>Historical Data</strong>
+                                <p>10+ years weather archive</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-language"></i>
+                            <div>
+                                <strong>Multi-language</strong>
+                                <p>15+ language support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Technology Stack -->
+                <div class="detail-card">
+                    <h3 class="detail-title">
+                        <i class="fas fa-microchip"></i>
+                        Tech Stack & APIs
+                    </h3>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React 18</span>
+                        <span class="tech-tag">Chart.js</span>
+                        <span class="tech-tag">D3.js</span>
+                        <span class="tech-tag">OpenWeather API</span>
+                        <span class="tech-tag">WeatherAPI.com</span>
+                        <span class="tech-tag">Geolocation API</span>
+                        <span class="tech-tag">Canvas API</span>
+                        <span class="tech-tag">Service Workers</span>
+                        <span class="tech-tag">TensorFlow.js</span>
+                        <span class="tech-tag">WebGL</span>
+                        <span class="tech-tag">PWA</span>
+                    </div>
+                </div>
+                
+                <!-- Live Weather Mock -->
+                <div class="mock-interface">
+                    <div class="mock-header">
+                        <div class="mock-dot" style="background: #ff5f57;"></div>
+                        <div class="mock-dot" style="background: #ffbd2e;"></div>
+                        <div class="mock-dot" style="background: #28ca42;"></div>
+                    </div>
+                    <div class="mock-content">
+                        <div style="width: 100%; padding: 2rem;">
+                            <!-- Current Weather -->
+                            <div style="text-align: center; margin-bottom: 2rem;">
+                                <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+                                    <i class="fas fa-cloud-sun" style="font-size: 3rem; color: #ffbd2e;"></i>
+                                    <div style="text-align: left;">
+                                        <div style="font-size: 2.5rem; color: var(--text-primary); font-weight: 600;">28°C</div>
+                                        <div style="color: var(--text-secondary);">Partly Cloudy</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 1rem;">
+                                    <div style="text-align: center;">
+                                        <div style="font-size: 1.25rem; color: var(--neon-red);">65%</div>
+                                        <div style="font-size: 0.75rem; color: var(--text-secondary);">Humidity</div>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <div style="font-size: 1.25rem; color: var(--neon-red);">12 km/h</div>
+                                        <div style="font-size: 0.75rem; color: var(--text-secondary);">Wind</div>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <div style="font-size: 1.25rem; color: var(--neon-red);">1013 hPa</div>
+                                        <div style="font-size: 0.75rem; color: var(--text-secondary);">Pressure</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 7-Day Forecast -->
+                            <h4 style="color: var(--text-primary); margin-bottom: 1rem; text-align: center;">7-Day Forecast</h4>
+                            <div style="display: flex; gap: 0.5rem; overflow-x: auto; padding: 0.5rem 0;">
+                                <div class="weather-card" style="min-width: 80px; text-align: center;">
+                                    <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Mon</div>
+                                    <i class="fas fa-sun" style="color: #ffbd2e; margin-bottom: 0.5rem;"></i>
+                                    <div style="font-size: 0.875rem; color: var(--text-primary);">32°/26°</div>
+                                </div>
+                                <div class="weather-card" style="min-width: 80px; text-align: center;">
+                                    <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Tue</div>
+                                    <i class="fas fa-cloud-rain" style="color: #00b4ff; margin-bottom: 0.5rem;"></i>
+                                    <div style="font-size: 0.875rem; color: var(--text-primary);">29°/25°</div>
+                                </div>
+                                <div class="weather-card" style="min-width: 80px; text-align: center;">
+                                    <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Wed</div>
+                                    <i class="fas fa-cloud" style="color: #9ca3af; margin-bottom: 0.5rem;"></i>
+                                    <div style="font-size: 0.875rem; color: var(--text-primary);">30°/26°</div>
+                                </div>
+                                <div class="weather-card" style="min-width: 80px; text-align: center;">
+                                    <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Thu</div>
+                                    <i class="fas fa-bolt" style="color: #ffbd2e; margin-bottom: 0.5rem;"></i>
+                                    <div style="font-size: 0.875rem; color: var(--text-primary);">31°/25°</div>
+                                </div>
+                                <div class="weather-card" style="min-width: 80px; text-align: center;">
+                                    <div style="font-size: 0.75rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Fri</div>
+                                    <i class="fas fa-sun" style="color: #ffbd2e; margin-bottom: 0.5rem;"></i>
+                                    <div style="font-size: 0.875rem; color: var(--text-primary);">33°/27°</div>
+                                </div>
+                            </div>
+                            
+                            <!-- AQI Indicator -->
+                            <div style="display: flex; justify-content: center; margin-top: 1.5rem;">
+                                <div class="aqi-indicator">
+                                    <div class="aqi-dot"></div>
+                                    <span style="color: var(--text-primary); font-size: 0.875rem;">Air Quality: Good (42)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Data Visualization -->
+                <div class="detail-card">
+                    <h3 class="detail-title">
+                        <i class="fas fa-chart-bar"></i>
+                        Data Visualization
+                    </h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                        <div style="background: linear-gradient(135deg, rgba(255, 0, 60, 0.1), rgba(0, 148, 255, 0.1)); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                            <div style="font-size: 1.5rem; color: var(--neon-red); font-weight: 600;">15K+</div>
+                            <div style="font-size: 0.875rem; color: var(--text-secondary);">Daily Active Users</div>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(255, 0, 60, 0.1), rgba(0, 148, 255, 0.1)); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                            <div style="font-size: 1.5rem; color: var(--neon-red); font-weight: 600;">98.5%</div>
+                            <div style="font-size: 0.875rem; color: var(--text-secondary);">Forecast Accuracy</div>
+                        </div>
+                        <div style="background: linear-gradient(135deg, rgba(255, 0, 60, 0.1), rgba(0, 148, 255, 0.1)); padding: 1rem; border-radius: 0.5rem; text-align: center;">
+                            <div style="font-size: 1.5rem; color: var(--neon-red); font-weight: 600;">2.5M</div>
+                            <div style="font-size: 0.875rem; color: var(--text-secondary);">API Calls/Month</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <aside class="project-sidebar">
+                <!-- API Integrations -->
+                <div class="sidebar-card">
+                    <h4 class="sidebar-title">
+                        <i class="fas fa-plug"></i>
+                        API Integrations
+                    </h4>
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(0, 148, 255, 0.1); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-cloud" style="color: #0094ff;"></i>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.875rem; font-weight: 500;">OpenWeather API</div>
+                                <div style="font-size: 0.75rem; color: var(--text-secondary);">Primary Data Source</div>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(255, 189, 46, 0.1); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-sun" style="color: #ffbd2e;"></i>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.875rem; font-weight: 500;">WeatherAPI.com</div>
+                                <div style="font-size: 0.75rem; color: var(--text-secondary);">Backup & Historical</div>
+                            </div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(0, 180, 255, 0.1); display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-map-marker-alt" style="color: #00b4ff;"></i>
+                            </div>
+                            <div>
+                                <div style="font-size: 0.875rem; font-weight: 500;">Geolocation API</div>
+                                <div style="font-size: 0.75rem; color: var(--text-secondary);">User Location</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Demo Links -->
+                <div class="sidebar-card">
+                    <h4 class="sidebar-title">
+                        <i class="fas fa-external-link-alt"></i>
+                        Live Demos
+                    </h4>
+                    <div class="demo-links">
+                        <a href="#" class="demo-link" target="_blank">
+                            <span>Weather Dashboard</span>
+                            <i class="fas fa-cloud-sun"></i>
+                        </a>
+                        <a href="#" class="demo-link" target="_blank">
+                            <span>Mobile App (PWA)</span>
+                            <i class="fas fa-mobile-alt"></i>
+                        </a>
+                        <a href="#" class="demo-link" target="_blank">
+                            <span>API Documentation</span>
+                            <i class="fas fa-code"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Weather Alerts -->
+                <div class="sidebar-card">
+                    <h4 class="sidebar-title">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Active Alerts
+                    </h4>
+                    <div style="margin-top: 1rem;">
+                        <div style="background: rgba(255, 189, 46, 0.1); border: 1px solid rgba(255, 189, 46, 0.3); padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 0.5rem;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+                                <i class="fas fa-bolt" style="color: #ffbd2e;"></i>
+                                <span style="font-size: 0.875rem; font-weight: 500;">Thunderstorm Warning</span>
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--text-secondary);">North Jakarta - Until 18:00</div>
+                        </div>
+                        
+                        <div style="background: rgba(255, 0, 60, 0.1); border: 1px solid rgba(255, 0, 60, 0.3); padding: 0.75rem; border-radius: 0.5rem;">
+                            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.25rem;">
+                                <i class="fas fa-wind" style="color: var(--neon-red);"></i>
+                                <span style="font-size: 0.875rem; font-weight: 500;">High Wind Advisory</span>
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--text-secondary);">Coastal Areas - 25-35 km/h</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Download Stats -->
+                <div class="sidebar-card">
+                    <h4 class="sidebar-title">
+                        <i class="fas fa-chart-pie"></i>
+                        User Statistics
+                    </h4>
+                    <div style="margin-top: 1rem;">
+                        <div style="margin-bottom: 1rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                                <span style="font-size: 0.875rem; color: var(--text-secondary);">Mobile Users</span>
+                                <span style="font-size: 0.875rem; color: var(--neon-red); font-weight: 600;">72%</span>
+                            </div>
+                            <div style="height: 6px; background: rgba(255, 255, 255, 0.1); border-radius: 3px; overflow: hidden;">
+                                <div style="width: 72%; height: 100%; background: linear-gradient(90deg, var(--neon-red), #ff6699);"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
+                                <span style="font-size: 0.875rem; color: var(--text-secondary);">API Reliability</span>
+                                <span style="font-size: 0.875rem; color: var(--neon-red); font-weight: 600;">99.9%</span>
+                            </div>
+                            <div style="height: 6px; background: rgba(255, 255, 255, 0.1); border-radius: 3px; overflow: hidden;">
+                                <div style="width: 99.9%; height: 100%; background: linear-gradient(90deg, #00b4ff, #0094ff);"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </section>
+        
+        <!-- Other Projects -->
+        <footer class="project-footer">
+            <h3 style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--neon-red);">Explore More Projects</h3>
+            <div class="other-projects">
+                <a href="ecommerce-website.html" class="project-card">
+                    <img src="../assets/images/project1.jpg" alt="E-Commerce">
+                    <div class="project-card-content">
+                        <h4>E-Commerce Platform</h4>
+                        <p>Full-stack online shopping solution</p>
+                    </div>
+                </a>
+                
+                <a href="task-management-app.html" class="project-card">
+                    <img src="../assets/images/project2.jpg" alt="Task Management">
+                    <div class="project-card-content">
+                        <h4>TaskFlow Pro</h4>
+                        <p>Collaborative task management</p>
+                    </div>
+                </a>
+                
+                <a href="rest-api-service.html" class="project-card">
+                    <img src="../assets/images/project4.jpg" alt="REST API">
+                    <div class="project-card-content">
+                        <h4>API Nexus</h4>
+                        <p>Scalable backend API service</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div style="margin-top: 3rem; text-align: center;">
+                <a href="../index.html#portfolio" class="back-btn" style="display: inline-flex;">
+                    <i class="fas fa-arrow-left"></i>
+                    View All Projects
+                </a>
+            </div>
+        </footer>
+    </main>
+    
+    <script src="../assets/js/projects.js"></script>
+    <script>
+        // Weather animation enhancements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simulate weather data updates
+            const tempElement = document.querySelector('.mock-content .weather-card:first-child');
+            if (tempElement) {
+                setInterval(() => {
+                    const currentTemp = document.querySelector('.mock-content .weather-card:first-child div:nth-child(3)');
+                    if (currentTemp) {
+                        const temp = parseInt(currentTemp.textContent);
+                        const randomChange = Math.random() > 0.5 ? 1 : -1;
+                        const newTemp = Math.max(25, Math.min(35, temp + randomChange));
+                        currentTemp.textContent = `${newTemp}°C`;
+                    }
+                }, 5000);
+            }
+            
+            // AQI animation
+            const aqiDot = document.querySelector('.aqi-dot');
+            if (aqiDot) {
+                const colors = ['#00ff00', '#ffff00', '#ff9900', '#ff0000', '#990099'];
+                let index = 0;
+                
+                setInterval(() => {
+                    aqiDot.style.background = colors[index];
+                    index = (index + 1) % colors.length;
+                    
+                    // Update AQI text
+                    const aqiText = document.querySelector('.aqi-indicator span');
+                    if (aqiText) {
+                        const aqiValues = ['Good (42)', 'Moderate (65)', 'Unhealthy (102)', 'Very Unhealthy (158)', 'Hazardous (205)'];
+                        aqiText.textContent = `Air Quality: ${aqiValues[index]}`;
+                    }
+                }, 3000);
+            }
+            
+            // Rain animation for rainy day forecast
+            const rainyCard = document.querySelector('.weather-card:nth-child(2)');
+            if (rainyCard) {
+                rainyCard.addEventListener('mouseenter', function() {
+                    const animation = this.querySelector('.weather-animation');
+                    if (animation) {
+                        animation.style.display = 'block';
+                    }
+                });
+                
+                rainyCard.addEventListener('mouseleave', function() {
+                    const animation = this.querySelector('.weather-animation');
+                    if (animation) {
+                        animation.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
