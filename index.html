@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bayu Anugraha - Full Stack Developer & Creative Designer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+</head>
+<body>
+    <!-- Particle Background for All Sections -->
+    <div id="particles-background" class="particles-background"></div>
+    
+    <!-- Navigation Bar -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                Bayu Anugraha
+            </div>
+            
+            <div class="nav-menu">
+                <button onclick="scrollToSection('home')" class="nav-link">Home</button>
+                <button onclick="scrollToSection('about')" class="nav-link">About</button>
+                <button onclick="scrollToSection('music')" class="nav-link">My Playlist</button>
+                <button onclick="scrollToSection('services')" class="nav-link">Services</button>
+                <button onclick="scrollToSection('portfolio')" class="nav-link">Portfolio</button>
+                <button onclick="scrollToSection('contact')" class="nav-link">Contact</button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="mobile-menu-btn">
+                <button id="mobile-menu-button">
+                    <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu">
+        <div class="mobile-menu-content">
+            <button onclick="scrollToSection('home')" class="mobile-nav-link">Home</button>
+            <button onclick="scrollToSection('about')" class="mobile-nav-link">About</button>
+            <button onclick="scrollToSection('music')" class="mobile-nav-link">My Playlist</button>
+            <button onclick="scrollToSection('services')" class="mobile-nav-link">Services</button>
+            <button onclick="scrollToSection('portfolio')" class="mobile-nav-link">Portfolio</button>
+            <button onclick="scrollToSection('contact')" class="mobile-nav-link">Contact</button>
+            <button id="close-mobile-menu" class="close-menu-btn">
+                <svg class="close-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <!-- Additional Hero Particles -->
+        <div id="hero-particles" class="hero-particles"></div>
+        
+        <!-- Content -->
+        <div class="container">
+            <div class="hero-content">
+                <!-- Text Content -->
+                <div class="hero-text">
+                    <p class="hero-greeting">Hello, I am</p>
+                    
+                    <h1 class="hero-title">
+                        <span id="typewriter" class="typewriter-text"></span>
+                        <span class="typewriter-cursor">|</span>
+                    </h1>
+                    
+                    <h2 class="hero-subtitle">
+                        Full Stack Developer & Creative Designer
+                    </h2>
+                    
+                    <p class="hero-description">
+                        A passionate 16-year-old high school student who loves exploring new things. 
+                        I create exceptional digital experiences through innovative web development 
+                        and stunning design solutions.
+                    </p>
+                    
+                    <!-- Buttons -->
+                    <div class="hero-buttons">
+                        <button onclick="downloadCV()" class="btn btn-primary">Download CV</button>
+                        <button onclick="scrollToSection('contact')" class="btn btn-secondary">Contact Me</button>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div class="social-links">
+                        <a href="https://wa.me/62895406178006" class="social-link">
+                            <span class="sr-only">WhatsApp</span>
+                            <i class="fab fa-whatsapp social-icon"></i>
+                        </a>
+                        
+                        <a href="https://github.com/Hanckdad" class="social-link">
+                            <span class="sr-only">GitHub</span>
+                            <i class="fab fa-github social-icon"></i>
+                        </a>
+                        
+                        <a href="https://whatsapp.com/channel/0029Vb75Zu9JZg46i8MIK62u" class="social-link">
+                            <span class="sr-only">WhatsApp Channel</span>
+                            <i class="fab fa-whatsapp-square social-icon"></i>
+                        </a>
+                        
+                        <a href="https://t.me/altheric" class="social-link">
+                            <span class="sr-only">Telegram</span>
+                            <i class="fab fa-telegram social-icon"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Profile Photo -->
+                <div class="hero-image">
+                    <div class="profile-container">
+                        <div class="profile-glow"></div>
+                        <img 
+                            src="assets/images/pp.jpg" 
+                            alt="Bayu Anugraha"
+                            class="profile-image"
+                            onerror="this.src='assets/images/placeholder.jpg'"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    About <span class="text-accent">Me</span>
+                </h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="about-content">
+                <p class="about-description">
+                    "I am a passionate 16-year-old high school student focusing on modern frontend technologies, 
+                    UI/UX fundamentals, and backend development. I enjoy building clean, responsive, 
+                    and user-friendly web applications while constantly exploring new things."
+                </p>
+                
+                <!-- Personal Info -->
+                <div class="personal-info">
+                    <h3 class="info-title">Personal Information</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Age</div>
+                            <div class="info-value">16 Years</div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-label">Status</div>
+                            <div class="info-value">High School Student</div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <div class="info-label">Hobby</div>
+                            <div class="hobby-value">Exploring New Things</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">2+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Playlist Section -->
+    <section id="music" class="music">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    My <span class="text-accent">Playlist</span>
+                </h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">
+                    Some songs that inspire me while coding and designing
+                </p>
+            </div>
+
+            <div class="music-player-container">
+                <div class="now-playing">
+                    <div class="now-playing-cover">
+                        <img id="current-cover" src="assets/images/music-placeholder.jpg" alt="Now Playing">
+                    </div>
+                    <div class="now-playing-info">
+                        <h3 id="current-title">Select a song</h3>
+                        <p id="current-artist">Artist</p>
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <div class="time-info">
+                                <span id="current-time">0:00</span>
+                                <span id="total-time">0:00</span>
+                            </div>
+                        </div>
+                        <div class="player-controls">
+                            <button id="prev-btn" class="control-btn">
+                                <i class="fas fa-step-backward"></i>
+                            </button>
+                            <button id="play-btn" class="control-btn play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button id="pause-btn" class="control-btn">
+                                <i class="fas fa-pause"></i>
+                            </button>
+                            <button id="next-btn" class="control-btn">
+                                <i class="fas fa-step-forward"></i>
+                            </button>
+                            <div class="volume-control">
+                                <i class="fas fa-volume-up volume-icon"></i>
+                                <input type="range" id="volume-slider" min="0" max="100" value="50">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="playlist">
+                    <div class="playlist-item" data-index="0">
+                        <div class="playlist-cover">
+                            <img src="assets/images/music1.jpg" alt="Cigarettes After Sex" onerror="this.src='assets/images/placeholder.jpg'">
+                        </div>
+                        <div class="playlist-info">
+                            <h4>K</h4>
+                            <p>Cigarettes After Sex</p>
+                            <span class="duration">4:48</span>
+                        </div>
+                        <button class="play-track-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="playlist-item" data-index="1">
+                        <div class="playlist-cover">
+                            <img src="assets/images/music2.jpg" alt="Ricky Montgomery" onerror="this.src='assets/images/placeholder.jpg'">
+                        </div>
+                        <div class="playlist-info">
+                            <h4>Mr Loverman</h4>
+                            <p>Ricky Montgomery</p>
+                            <span class="duration">3:06</span>
+                        </div>
+                        <button class="play-track-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="playlist-item" data-index="2">
+                        <div class="playlist-cover">
+                            <img src="assets/images/music3.jpg" alt="Yungkai" onerror="this.src='assets/images/placeholder.jpg'">
+                        </div>
+                        <div class="playlist-info">
+                            <h4>Blue</h4>
+                            <p>Yungkai</p>
+                            <span class="duration">3:22</span>
+                        </div>
+                        <button class="play-track-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="playlist-item" data-index="3">
+                        <div class="playlist-cover">
+                            <img src="assets/images/music4.jpg" alt="W2E" onerror="this.src='assets/images/placeholder.jpg'">
+                        </div>
+                        <div class="playlist-info">
+                            <h4>Season</h4>
+                            <p>Wave To Earth</p>
+                            <span class="duration">3:45</span>
+                        </div>
+                        <button class="play-track-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="playlist-item" data-index="4">
+                        <div class="playlist-cover">
+                            <img src="assets/images/music5.jpg" alt="Radiohead" onerror="this.src='assets/images/placeholder.jpg'">
+                        </div>
+                        <div class="playlist-info">
+                            <h4>Creep</h4>
+                            <p>Radiohead</p>
+                            <span class="duration">3:58</span>
+                        </div>
+                        <button class="play-track-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    My <span class="text-accent">Services</span>
+                </h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">
+                    I offer a wide range of services to help bring your digital ideas to life
+                </p>
+            </div>
+
+            <div id="services-container" class="services-grid">
+                <!-- Services will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    My <span class="text-accent">Portfolio</span>
+                </h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">
+                    Check out some of my recent projects and creative works
+                </p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="portfolio-filters">
+                <button data-filter="all" class="filter-btn active">All</button>
+                <button data-filter="react" class="filter-btn">React</button>
+                <button data-filter="vue" class="filter-btn">Vue.js</button>
+                <button data-filter="node" class="filter-btn">Node.js</button>
+                <button data-filter="api" class="filter-btn">API</button>
+            </div>
+
+            <div id="portfolio-container" class="portfolio-grid">
+                <!-- Portfolio items will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    Get In <span class="text-accent">Touch</span>
+                </h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">
+                    Ready to bring your ideas to life? Let's discuss your project!
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h3 class="contact-title">Let's talk about everything!</h3>
+                    <p class="contact-description">
+                        Whether you have a project in mind, need technical consultation, or just want to say hello, 
+                        I'd love to hear from you. Feel free to reach out through any of the channels below.
+                    </p>
+
+                    <div class="contact-methods">
+                        <a href="mailto:asepgu@email.com" class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-method-title">Email</div>
+                                <div class="contact-method-value">asepgu@email.com</div>
+                            </div>
+                        </a>
+                        
+                        <a href="https://wa.me/62895406178006" class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-method-title">Phone</div>
+                                <div class="contact-method-value">+62 895 4061 78006</div>
+                            </div>
+                        </a>
+                        
+                        <a href="#" class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <div class="contact-method-title">Location</div>
+                                <div class="contact-method-value">Indonesia</div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Social Media Links -->
+                    <div class="contact-social">
+                        <h4 class="social-title">Follow Me</h4>
+                        <div class="social-buttons">
+                            <a href="https://github.com/Hanckdad" class="social-btn">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://t.me/altheric" class="social-btn">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                            <a href="https://whatsapp.com/channel/0029Vb75Zu9JZg46i8MIK62u" class="social-btn">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Your Name</label>
+                                <input type="text" id="name" name="name" required class="form-input" placeholder="Enter your name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Your Email</label>
+                                <input type="email" id="email" name="email" required class="form-input" placeholder="Enter your email">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" id="subject" name="subject" required class="form-input" placeholder="Enter subject">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea id="message" name="message" required rows="6" class="form-textarea" placeholder="Enter your message"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">Bayu Anugraha</div>
+                    <p class="footer-description">Full Stack Developer & Creative Designer</p>
+                </div>
+                
+                <div class="footer-copyright">
+                    <p class="copyright-text">
+                        © <span id="current-year"></span> Bayu Anugraha. All rights reserved.
+                    </p>
+                    <p class="built-with">Built with HTML, CSS & JavaScript</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Player -->
+    <audio id="audio-player" preload="metadata"></audio>
+
+    <script src="script.js"></script>
+</body>
+          </html>
