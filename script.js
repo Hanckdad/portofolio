@@ -32,7 +32,7 @@ const servicesData = [
     }
 ];
 
-<!-- Di dalam script.js, update portfolioData: -->
+//UPDATE
 const portfolioData = [
     {
         title: "E-Commerce Website",
