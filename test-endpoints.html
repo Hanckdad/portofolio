@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Vercel Endpoints</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 800px; margin: 0 auto; }
+        .endpoint { margin: 15px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .endpoint h3 { margin-top: 0; }
+        .status { padding: 5px 10px; border-radius: 3px; font-size: 12px; }
+        .success { background: #d4edda; color: #155724; }
+        .pending { background: #fff3cd; color: #856404; }
+        .url { font-family: monospace; background: #f8f9fa; padding: 5px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>Test Vercel Endpoints</h1>
+    
+    <div class="endpoint">
+        <h3>Homepage</h3>
+        <div class="url">GET /</div>
+        <div class="status pending">Testing...</div>
+    </div>
+    
+    <div class="endpoint">
+        <h3>Privacy Policy</h3>
+        <div class="url">GET /privacy-policy</div>
+        <div class="status pending">Testing...</div>
+    </div>
+    
+    <div class="endpoint">
+        <h3>Project Pages</h3>
+        <div class="url">GET /projects/ecommerce-website</div>
+        <div class="status pending">Testing...</div>
+    </div>
+    
+    <script>
+        const endpoints = [
+            { name: 'Homepage', path: '/' },
+            { name: 'Privacy Policy', path: '/privacy-policy' },
+            { name: 'E-commerce Project', path: '/projects/ecommerce-website' },
+            { name: 'Task Management', path: '/projects/task-management-app' },
+            { name: 'Weather Dashboard', path: '/projects/weather-dashboard' },
+            { name: 'API Service', path: '/projects/rest-api-service' },
+            { name: 'WhatsApp Bot', path: '/projects/whatsapp-business-bot' }
+        ];
+        
+        async function testEndpoint(endpoint) {
+            try {
+                const response = await fetch(endpoint.path);
+                const statusEl = document.querySelector(`.endpoint:nth-child(${endpoint.index + 1}) .status`);
+                
+                if (response.ok) {
+                    statusEl.textContent = `✅ ${response.status} ${response.statusText}`;
+                    statusEl.className = 'status success';
+                } else {
+                    statusEl.textContent = `❌ ${response.status} ${response.statusText}`;
+                    statusEl.className = 'status error';
+                }
+            } catch (error) {
+                const statusEl = document.querySelector(`.endpoint:nth-child(${endpoint.index + 1}) .status`);
+                statusEl.textContent = `❌ Error: ${error.message}`;
+                statusEl.className = 'status error';
+            }
+        }
+        
+        // Test all endpoints
+        endpoints.forEach((endpoint, index) => {
+            endpoint.index = index;
+            setTimeout(() => testEndpoint(endpoint), index * 500);
+        });
+    </script>
+</body>
+</html>
