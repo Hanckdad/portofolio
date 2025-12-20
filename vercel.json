@@ -1,0 +1,59 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy-policy.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms-of-service.html"
+    },
+    {
+      "source": "/projects/ecommerce-website",
+      "destination": "/projects/ecommerce-website.html"
+    },
+    {
+      "source": "/projects/task-management-app",
+      "destination": "/projects/task-management-app.html"
+    },
+    {
+      "source": "/projects/weather-dashboard",
+      "destination": "/projects/weather-dashboard.html"
+    },
+    {
+      "source": "/projects/rest-api-service",
+      "destination": "/projects/rest-api-service.html"
+    },
+    {
+      "source": "/projects/whatsapp-business-bot",
+      "destination": "/projects/whatsapp-business-bot.html"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ]
+}
