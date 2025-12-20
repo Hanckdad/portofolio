@@ -1,0 +1,17 @@
+{
+  "name": "bayu-portfolio",
+  "version": "1.0.0",
+  "description": "Bayu Official Portofolio",
+  "scripts": {
+    "dev": "serve .",
+    "build": "echo 'No build required'",
+    "start": "serve ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
